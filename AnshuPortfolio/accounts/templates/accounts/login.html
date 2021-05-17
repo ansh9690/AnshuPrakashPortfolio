@@ -1,0 +1,22 @@
+{% extends 'accounts/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Sign Up{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="col-lg-4 mx-auto border border-info rounded p-3 m-3 mt-5">
+        <h2 class="text-center">Sign In</h2>
+        <hr>
+        <form method="post" action="{% url 'accounts:login' %}">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            {{form|crispy}}
+            <div class="d-grid gap-2 mt-3 mb-3">
+            <button type="submit" class="btn btn-primary">Sign In</button>
+            </div>
+        </form>
+    <div class="hint-text">Need an accounts? <a href="{% url 'accounts:register' %}" >Sign up here!</a></div>
+    </div>
+</div>
+
+{% endblock %}

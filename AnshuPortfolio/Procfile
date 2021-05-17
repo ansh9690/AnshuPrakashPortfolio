@@ -1,0 +1,1 @@
+web: gunicorn AnshuPortfolio.wsgi --log-file 
